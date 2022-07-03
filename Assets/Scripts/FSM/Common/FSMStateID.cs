@@ -6,7 +6,8 @@ namespace AI.FSM {
     public enum FSMStateID {
         Default,
         Idle,
-        Moving
+        Moving,
+        ItemCollecting
     }
 
 }

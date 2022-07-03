@@ -6,4 +6,6 @@ public class CharacterStatus : MonoBehaviour {
     public int RemainedWater = 0;
     [HideInInspector]
     public Vector2 Direction;
+    [HideInInspector]
+    public IItem ItemCanCollect = null;
 }
