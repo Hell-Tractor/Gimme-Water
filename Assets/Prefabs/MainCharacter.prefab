@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 1643007168851583108}
   - component: {fileID: 1643007168851583109}
   - component: {fileID: 1643007168851583114}
-  - component: {fileID: 1643007168851583115}
   - component: {fileID: 8663114925414923865}
+  - component: {fileID: 3206371420428517594}
+  - component: {fileID: 7982284703267290868}
   m_Layer: 3
   m_Name: MainCharacter
   m_TagString: Untagged
@@ -106,19 +107,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1643007168851583115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1643007168851583110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be67f236df9c7314cbbd49dac11e8f45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
 --- !u!114 &8663114925414923865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,3 +121,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sprite: {fileID: 21300000, guid: afb6ce909a74ec542ad4c74904bcbde8, type: 3}
   Color: {r: 1, g: 0, b: 0, a: 1}
+  ImageOnRadar: {fileID: 0}
+--- !u!114 &3206371420428517594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643007168851583110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9dd7b67e6946c8419e4539e79092ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultStateID: 1
+  currentStateID: 
+  animator: {fileID: 0}
+--- !u!114 &7982284703267290868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643007168851583110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09e4be1ec71acd4abf6ab0174cff254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 6
+  RemainedWater: 0
+  Direction: {x: 0, y: 0}
