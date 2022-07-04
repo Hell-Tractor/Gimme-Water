@@ -35,7 +35,7 @@ public abstract class FSMState {
     /// <param name="fsm">所要切换的状态机</param>
     public void Reason(FSMBase fsm) {
         foreach (FSMTrigger i in _triggers) {
-            if (i.HandleTrigger(fsm)) {
+            if (fsm.GetTrigger(i.TriggerID) || i.HandleTrigger(fsm)) {
                 fsm.changeActiveState(_map[i.TriggerID]);
                 return;
             }

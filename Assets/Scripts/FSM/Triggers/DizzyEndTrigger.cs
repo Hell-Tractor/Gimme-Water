@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace AI.FSM {
 
-    public class ItemFoundTrigger : FSMTrigger {
+    public class DizzyEndTrigger : FSMTrigger {
         protected override void init() {
-            this.TriggerID = FSMTriggerID.ItemFound;
+            this.TriggerID = FSMTriggerID.DizzyEnd;
         }
 
         public override bool HandleTrigger(FSMBase fsm) {

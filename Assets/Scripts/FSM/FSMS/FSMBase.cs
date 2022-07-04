@@ -13,6 +13,7 @@ public class FSMBase : MonoBehaviour {
     /// </summary>
     protected virtual void setUpFSM() {
         _states = new List<FSMState>();
+        _enabledTriggers = new HashSet<FSMTriggerID>();
     }
     /// <summary>
     /// 初始化其他组件
@@ -49,11 +50,24 @@ public class FSMBase : MonoBehaviour {
         _currentState.OnStateEnter(this);
     }
 
+    public void SetTrigger(FSMTriggerID triggerID) {
+        _enabledTriggers.Add(triggerID);
+    }
+
+    public bool GetTrigger(FSMTriggerID triggerID) {
+        if (_enabledTriggers.Contains(triggerID)) {
+            _enabledTriggers.Remove(triggerID);
+            return true;
+        }
+        return false;
+    }
+
     [Tooltip("默认状态"), Header("状态设置")]
     public FSMStateID defaultStateID;
     protected FSMState _defaultState;
     protected List<FSMState> _states;
     protected FSMState _currentState;
+    protected HashSet<FSMTriggerID> _enabledTriggers;
     public string currentStateID;
     public Animator animator;
 }

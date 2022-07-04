@@ -38,10 +38,11 @@ public class Shooter : MonoBehaviour
             _status.RemainedWater -= waterCost;
         }
 
-        float angle = Random.Range(-shootSpreadAngle, shootSpreadAngle);
+        Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        float angle = Random.Range(-shootSpreadAngle, shootSpreadAngle) + Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         var bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         bullet.transform.Rotate(new Vector3(0.0f, 0.0f, angle));
-        bullet.GetComponent<Bullet>().Launch();
+        bullet.GetComponent<Bullet>().Launch(this);
     }
 
     // Start is called before the first frame update

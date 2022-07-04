@@ -19,13 +19,6 @@ public class WaterItem : MonoBehaviour, IItem
         Destroy(this.gameObject);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if(enableDecrease)
@@ -40,6 +33,13 @@ public class WaterItem : MonoBehaviour, IItem
             } 
             else
                 _remainDecreaseTime -= Time.deltaTime;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.CompareTag("Player")) {
+            collision.GetComponent<AI.FSM.CharacterFSM>()?.SetTrigger(AI.FSM.FSMTriggerID.ItemFound);
+            collision.GetComponent<CharacterStatus>().ItemCanCollect = this;
         }
     }
 }

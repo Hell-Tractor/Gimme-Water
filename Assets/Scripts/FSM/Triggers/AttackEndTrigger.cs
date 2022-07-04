@@ -2,13 +2,13 @@ using UnityEngine;
 
 namespace AI.FSM {
 
-    public class ItemFoundTrigger : FSMTrigger {
+    public class AttackEndTrigger : FSMTrigger {
         protected override void init() {
-            this.TriggerID = FSMTriggerID.ItemFound;
+            this.TriggerID = FSMTriggerID.AttackEnd;
         }
 
         public override bool HandleTrigger(FSMBase fsm) {
-            return false;
+            return !Input.GetButton("Fire");
         }
     }
 

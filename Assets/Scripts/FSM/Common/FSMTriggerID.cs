@@ -8,6 +8,10 @@ namespace AI.FSM {
         MoveStart,
         ItemFound,
         ItemCollected,
+        DizzyEnd,
+        UnderAttack,
+        AttackStart,
+        AttackEnd,
     }
 
 }

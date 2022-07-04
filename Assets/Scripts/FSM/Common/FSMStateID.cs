@@ -7,7 +7,9 @@ namespace AI.FSM {
         Default,
         Idle,
         Moving,
-        ItemCollecting
+        ItemCollecting,
+        Attacking,
+        Dizzy,
     }
 
 }

@@ -13,9 +13,11 @@ public class Bullet : MonoBehaviour
     float _remainTime = 0.0f;
 
     private Rigidbody2D _rigidbody2D;
+    private Shooter _shooter;
 
-    public void Launch()
+    public void Launch(Shooter shooter)
     {
+        _shooter = shooter;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _rigidbody2D.velocity = Vector2.right;
         _rigidbody2D.velocity = transform.rotation * _rigidbody2D.velocity;
@@ -42,6 +44,13 @@ public class Bullet : MonoBehaviour
 
         if(_remainTime <= 0.0f)
         {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.CompareTag("Player") && collision.gameObject != _shooter.gameObject) {
+            collision.GetComponent<AI.FSM.CharacterFSM>()?.SetTrigger(AI.FSM.FSMTriggerID.UnderAttack);
             Destroy(gameObject);
         }
     }
