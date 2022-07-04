@@ -5,7 +5,9 @@ namespace AI.FSM {
     /// </summary>
     public enum FSMTriggerID {
         MoveEnd,
-        MoveStart
+        MoveStart,
+        ItemFound,
+        ItemCollected,
     }
 
 }
