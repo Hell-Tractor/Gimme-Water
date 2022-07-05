@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class WaterSource : MonoBehaviour
+public class WaterSource : NetworkBehaviour
 {
     private float _remainSpawnWaterTime = 0.0f;
 
@@ -38,6 +39,7 @@ public class WaterSource : MonoBehaviour
         waterItem.GetComponent<WaterItem>().waterAmount = Random.Range(
             spawnWaterAmountMin, 
             spawnWaterAmountMax);
+        NetworkServer.Spawn(waterItem);
     }
 
     // Start is called before the first frame update
@@ -49,20 +51,23 @@ public class WaterSource : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(spawnEnabled)
+        if(isServer)
         {
-            if(_remainSpawnWaterTime <= 0.0f)
+            if(spawnEnabled)
             {
-                int size = Random.Range(spawnBatchSizeMin, spawnBatchSizeMax);
-                for(int i = 0; i < size; i++)
-                    spawnWaterItem();
+                if(_remainSpawnWaterTime <= 0.0f)
+                {
+                    int size = Random.Range(spawnBatchSizeMin, spawnBatchSizeMax);
+                    for(int i = 0; i < size; i++)
+                        spawnWaterItem();
 
-                _remainSpawnWaterTime = Random.Range(
-                    spawnIntervalMin, 
-                    spawnIntervalMax);
+                    _remainSpawnWaterTime = Random.Range(
+                        spawnIntervalMin, 
+                        spawnIntervalMax);
+                }
+                else
+                    _remainSpawnWaterTime -= Time.deltaTime;
             }
-            else
-                _remainSpawnWaterTime -= Time.deltaTime;
         }
     }
 }

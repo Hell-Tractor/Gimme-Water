@@ -8,7 +8,8 @@ namespace AI.FSM {
         }
 
         public override bool HandleTrigger(FSMBase fsm) {
-            return !Input.GetButton("Fire");
+            var shooter = fsm.GetComponent<Shooter>();
+            return shooter != null && !shooter.shooting;
         }
     }
 

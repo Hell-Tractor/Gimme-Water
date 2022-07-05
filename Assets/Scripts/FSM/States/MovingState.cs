@@ -11,16 +11,12 @@ namespace AI.FSM {
 
         public override void OnStateEnter(FSMBase fsm) {
             base.OnStateEnter(fsm);
-
             _characterStatus = fsm.GetComponent<CharacterStatus>();
         }
 
         public override void OnStateStay(FSMBase fsm) {
             base.OnStateStay(fsm);
 
-            if (_characterStatus != null) {
-                _characterStatus.Direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            }
         }
 
         public override void OnStateFixedStay(FSMBase fsm) {
@@ -34,7 +30,6 @@ namespace AI.FSM {
 
         public override void OnStateExit(FSMBase fsm) {
             base.OnStateExit(fsm);
-
             _characterStatus = null;
         }
     }

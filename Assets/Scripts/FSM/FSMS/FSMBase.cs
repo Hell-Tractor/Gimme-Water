@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 namespace AI.FSM {
 
@@ -7,7 +8,7 @@ namespace AI.FSM {
 /// <para>有限状态机</para>
 /// <para>子类需要调用父类Start, Update方法，调用并重写setUpFSM方法</para>
 /// </summary>
-public class FSMBase : MonoBehaviour {
+public class FSMBase : NetworkBehaviour {
     /// <summary>
     /// 初始化状态机，子类需要调用base.setUpFSM()
     /// </summary>

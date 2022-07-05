@@ -8,8 +8,8 @@ namespace AI.FSM {
         }
 
         public override bool HandleTrigger(FSMBase fsm) {
-            Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            return input.magnitude < 0.01f;
+            Vector2 direction = fsm.GetComponent<CharacterStatus>().Direction;
+            return direction.magnitude < 0.01f;
         }
     }
 

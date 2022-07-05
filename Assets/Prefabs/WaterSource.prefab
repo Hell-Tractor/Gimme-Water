@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6528321212428213596}
   - component: {fileID: 6528321212428213597}
   - component: {fileID: 8272057671817094037}
+  - component: {fileID: -1673519465962269191}
+  - component: {fileID: -5929323362733739823}
   m_Layer: 0
   m_Name: WaterSource
   m_TagString: Untagged
@@ -105,3 +107,54 @@ MonoBehaviour:
   spawnWaterAmountMin: 10
   spawnWaterAmountMax: 10
   waterItemPrefab: {fileID: 1423184274182625149, guid: e4cc92db3af2c3b48b00b0e0f5a4044d, type: 3}
+--- !u!114 &-1673519465962269191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6528321212428213666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: d821a8d07582e9c45a5ada4f5a3a329e
+  hasSpawned: 0
+--- !u!114 &-5929323362733739823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6528321212428213666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 0
+  sendInterval: 0.01
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 0
+  bufferTimeMultiplier: 1
+  bufferSizeLimit: 64
+  catchupThreshold: 4
+  catchupMultiplier: 0.1
+  onlySyncOnChange: 1
+  bufferResetMultiplier: 5
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class Shooter : MonoBehaviour
+public class Shooter : NetworkBehaviour
 {
     float _remainShootTime = 0.0f;
 
@@ -12,21 +13,26 @@ public class Shooter : MonoBehaviour
 
     public float shootSpreadAngle = 10f;
 
+    public float initialDistance = 0.5f;
+
     public GameObject bulletPrefab;
 
     private CharacterStatus _status;
 
-    private bool _shooting = false;
+    public bool shooting = false;
+
+    private float _shootAngle = 0.0f;
     
 
-    public void startShooting()
+    [Command]
+    public void CmdChangeShootDirection(float angle)
     {
-        _shooting = true;
+        _shootAngle = angle;
     }
 
-    public void stopShooting()
+    public float GetShootAngle()
     {
-        _shooting = false;
+        return _shootAngle;
     }
 
     private void shoot()
@@ -38,11 +44,14 @@ public class Shooter : MonoBehaviour
             _status.RemainedWater -= waterCost;
         }
 
-        Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float angle = Random.Range(-shootSpreadAngle, shootSpreadAngle) + Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angle = Random.Range(-shootSpreadAngle, shootSpreadAngle) + _shootAngle;
         var bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+
         bullet.transform.Rotate(new Vector3(0.0f, 0.0f, angle));
+        bullet.transform.position += bullet.transform.rotation * Vector3.right * initialDistance;
         bullet.GetComponent<Bullet>().Launch(this);
+
+        NetworkServer.Spawn(bullet);
     }
 
     // Start is called before the first frame update
@@ -54,15 +63,24 @@ public class Shooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_shooting)
+        if(isLocalPlayer)
         {
-            if(_remainShootTime < 0.0f)
+            Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            CmdChangeShootDirection(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+        }
+
+        if(isServer)
+        {
+            if(shooting)
             {
-                shoot();
-                _remainShootTime = shootInterval;
+                if(_remainShootTime < 0.0f)
+                {
+                    shoot();
+                    _remainShootTime = shootInterval;
+                }
+                else
+                    _remainShootTime -= Time.deltaTime;
             }
-            else
-                _remainShootTime -= Time.deltaTime;
         }
     }
 }

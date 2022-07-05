@@ -14,8 +14,6 @@ namespace AI.FSM {
             base.OnStateEnter(fsm);
             _movingState.OnStateEnter(fsm);
 
-            _shooter = fsm.GetComponent<Shooter>();
-            _shooter?.startShooting();
         }
 
         public override void OnStateStay(FSMBase fsm) {
@@ -32,7 +30,6 @@ namespace AI.FSM {
             base.OnStateExit(fsm);
             _movingState.OnStateExit(fsm);
 
-            _shooter?.stopShooting();
         }
     }
 

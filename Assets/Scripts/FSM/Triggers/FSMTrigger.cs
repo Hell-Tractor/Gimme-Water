@@ -1,3 +1,5 @@
+using Mirror;
+
 namespace AI.FSM {
 
 /// <summary>
