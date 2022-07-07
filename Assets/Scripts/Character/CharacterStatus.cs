@@ -7,6 +7,8 @@ public class CharacterStatus : NetworkBehaviour {
     public float DizzyTimeReduceAmount = 0.2f;
     public int InitWater;
     public string Name;
+    public AudioClip OnHitSound;
+    public AudioClip FireSound;
 
     [HideInInspector]
     public int RemainedWater = 0;

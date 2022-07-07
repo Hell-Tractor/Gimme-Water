@@ -100,8 +100,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   spawnEnabled: 1
-  spawnIntervalMin: 5
-  spawnIntervalMax: 5
+  spawnIntervalMin: 60
+  spawnIntervalMax: 60
   spawnRadiusMin: 0
   spawnRadiusMax: 30
   spawnBatchSizeMin: 10

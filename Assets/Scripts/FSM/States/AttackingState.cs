@@ -14,6 +14,9 @@ namespace AI.FSM {
             base.OnStateEnter(fsm);
             _movingState.OnStateEnter(fsm);
 
+            GameManager.Instance.SFXSource.PlayOneShot(
+                fsm.GetComponent<CharacterStatus>().FireSound
+            );
         }
 
         public override void OnStateStay(FSMBase fsm) {
