@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
             Debug.LogWarning("Duplicate GameManager detected. Destroying...");
         } else {
             _instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
     }
 }
