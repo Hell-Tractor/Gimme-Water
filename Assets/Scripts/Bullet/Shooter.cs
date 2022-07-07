@@ -45,7 +45,7 @@ public class Shooter : NetworkBehaviour
             _status.RemainedWater -= waterCost;
         }
 
-        float angle = Random.Range(-shootSpreadAngle, shootSpreadAngle) + _shootAngle;
+        float angle = Random.Range(-shootSpreadAngle, shootSpreadAngle) + this.GetShootAngle();
         var bullet = Instantiate(bulletPrefab, ShootingCenter.transform.position, transform.rotation);
 
         bullet.transform.Rotate(new Vector3(0.0f, 0.0f, angle));
