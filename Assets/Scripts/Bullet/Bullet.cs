@@ -59,8 +59,9 @@ public class Bullet : NetworkBehaviour
 
     [ServerCallback]
     private void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.CompareTag("Player") && collision.gameObject != _shooter.gameObject) {
-            collision.GetComponent<AI.FSM.CharacterFSM>()?.SetTrigger(AI.FSM.FSMTriggerID.UnderAttack);
+        if(collision.gameObject != _shooter.gameObject) {
+            if (collision.CompareTag("Player"))
+                collision.GetComponent<AI.FSM.CharacterFSM>()?.SetTrigger(AI.FSM.FSMTriggerID.UnderAttack);
             Destroy(gameObject);
         }
     }
