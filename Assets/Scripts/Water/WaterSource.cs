@@ -27,14 +27,25 @@ public class WaterSource : NetworkBehaviour
 
     public GameObject waterItemPrefab;
 
-
-    public void spawnWaterItem()
-    {
+    private Vector3 _getSpawnPosition() {
         float r = Random.Range(spawnRadiusMin, spawnRadiusMax);
         float theta = Random.Range(0.0f, Mathf.Acos(-1.0f) * 2.0f);
         Vector3 pos = new Vector3(r * Mathf.Cos(theta), r * Mathf.Sin(theta));
         pos += transform.position;
-        
+        return pos;
+    }
+
+    public void spawnWaterItem()
+    {
+        Vector3 pos = _getSpawnPosition();
+        int i;
+        for (i = 0; Physics2D.OverlapCircle(pos, 0.5f) != null && i < 10; ++i) {
+            pos = _getSpawnPosition();
+        }
+        if (i == 10) {
+            Debug.Log("Failed to find a valid position for water item");
+            return;
+        }
         var waterItem = Instantiate(waterItemPrefab, pos, Quaternion.identity);
         waterItem.GetComponent<WaterItem>().waterAmount = Random.Range(
             spawnWaterAmountMin, 
