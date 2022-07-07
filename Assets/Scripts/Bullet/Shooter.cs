@@ -23,6 +23,7 @@ public class Shooter : NetworkBehaviour
 
     private float _shootAngle = 0.0f;
     
+    public Transform ShootingCenter;
 
     [Command]
     public void CmdChangeShootDirection(float angle)
@@ -45,7 +46,7 @@ public class Shooter : NetworkBehaviour
         }
 
         float angle = Random.Range(-shootSpreadAngle, shootSpreadAngle) + _shootAngle;
-        var bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+        var bullet = Instantiate(bulletPrefab, ShootingCenter.transform.position, transform.rotation);
 
         bullet.transform.Rotate(new Vector3(0.0f, 0.0f, angle));
         bullet.transform.position += bullet.transform.rotation * Vector3.right * initialDistance;

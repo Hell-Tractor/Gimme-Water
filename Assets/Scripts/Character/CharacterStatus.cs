@@ -19,19 +19,26 @@ public class CharacterStatus : NetworkBehaviour {
     private void Start() {
         RemainedWater = InitWater;
         if(isLocalPlayer) {
-            Camera.main.transform.SetParent(transform);
+            foreach (var camera in Camera.allCameras)
+                camera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = this.transform;
         }
     }
 
     [Command]
     private void CmdMove(float x, float y) {
+        if (Mathf.Approximately(x, 0) && Mathf.Approximately(y, 0))
+            return;
         Direction.x = x * Mathf.Sqrt(1.0f - (y * y) * 0.5f);
         Direction.y = y * Mathf.Sqrt(1.0f - (x * x) * 0.5f);
+        Animator animator = this.GetComponent<Animator>();
+        animator.SetFloat("DirectionX", Direction.x);
+        animator.SetFloat("DirectionY", Direction.y);
     }
 
     [Command]
     private void CmdSetIsShooting(bool isShooting)
     {
+        Debug.Log("Fire");
         GetComponent<Shooter>().shooting = isShooting;
     }
 
@@ -41,14 +48,8 @@ public class CharacterStatus : NetworkBehaviour {
                 CmdSetIsShooting(true);
             if(Input.GetButtonUp("Fire"))
                 CmdSetIsShooting(false);
-        }
-    } 
 
-    bool f;
-
-    private void FixedUpdate() {
-        if(isLocalPlayer) {
             CmdMove(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         }
-    }
+    } 
 }

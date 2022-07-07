@@ -329,14 +329,14 @@ MonoBehaviour:
   autoStartServerBuild: 1
   serverTickRate: 60
   offlineScene: Assets/Scenes/OfflineScene.unity
-  onlineScene: Assets/Scenes/OnlineScene.unity
+  onlineScene: Assets/Scenes/GameScene.unity
   transport: {fileID: 1613052700}
   networkAddress: localhost
   maxConnections: 100
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 1643007168851583110, guid: 9d6b145b8c08c4848963508f5cefc20a, type: 3}
   autoCreatePlayer: 1
-  playerSpawnMethod: 0
+  playerSpawnMethod: 1
   spawnPrefabs:
   - {fileID: 1423184274182625149, guid: e4cc92db3af2c3b48b00b0e0f5a4044d, type: 3}
   - {fileID: 6528321212428213666, guid: d821a8d07582e9c45a5ada4f5a3a329e, type: 3}
