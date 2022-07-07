@@ -66,7 +66,7 @@ public class Shooter : NetworkBehaviour
     {
         if(isLocalPlayer)
         {
-            Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - ShootingCenter.transform.position;
             CmdChangeShootDirection(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
         }
 
