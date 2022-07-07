@@ -38,7 +38,6 @@ public class CharacterStatus : NetworkBehaviour {
     [Command]
     private void CmdSetIsShooting(bool isShooting)
     {
-        Debug.Log("Fire");
         GetComponent<Shooter>().shooting = isShooting;
     }
 
