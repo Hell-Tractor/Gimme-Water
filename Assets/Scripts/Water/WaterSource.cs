@@ -39,7 +39,7 @@ public class WaterSource : NetworkBehaviour
     {
         Vector3 pos = _getSpawnPosition();
         int i;
-        for (i = 0; Physics2D.OverlapCircle(pos, 0.5f) != null && i < 10; ++i) {
+        for (i = 0; Physics2D.OverlapCircle(pos, 2f) != null && i < 10; ++i) {
             pos = _getSpawnPosition();
         }
         if (i == 10) {
