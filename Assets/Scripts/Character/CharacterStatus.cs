@@ -6,6 +6,7 @@ public class CharacterStatus : NetworkBehaviour {
     public float DizzyTime = 3;
     public float DizzyTimeReduceAmount = 0.2f;
     public int InitWater;
+    public string Name;
 
     [HideInInspector]
     public int RemainedWater = 0;
