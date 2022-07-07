@@ -374,6 +374,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGMSource: {fileID: 1073042949}
   SFXSource: {fileID: 1073042948}
+  GameState: 0
+  GameDuration: 30
+  EndingTime: 25
+  NeedPlayerCount: 1
+  PlayersWithMaxRemainedWater: []
 --- !u!82 &1073042948
 AudioSource:
   m_ObjectHideFlags: 0
