@@ -48,3 +48,6 @@ TagManager:
   - name: Player
     uniqueID: 3268492969
     locked: 0
+  - name: Foreground
+    uniqueID: 2007501771
+    locked: 0
