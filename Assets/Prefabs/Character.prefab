@@ -180,7 +180,7 @@ MonoBehaviour:
   DizzyTime: 3
   DizzyTimeReduceAmount: 0.2
   InitWater: 10000
-  Name: "\u8C22\u9759\u601D"
+  Name: cheiming
   RemainedWater: 0
   Direction: {x: 0, y: 0}
   ItemCanCollect: {fileID: 0}

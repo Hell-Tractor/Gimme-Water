@@ -103,27 +103,27 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   lifeTime: 1
-  initialSpeed: 30
+  initialSpeed: 50
   speedCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1.0023499
-      inSlope: 0.012288022
-      outSlope: 0.012288022
-      tangentMode: 0
+      value: 1
+      inSlope: -0.67181987
+      outSlope: -0.67181987
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.32405117
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 0.002357483
-      inSlope: -4.2879343
-      outSlope: -4.2879343
+      time: 1.072876
+      value: 0.27922058
+      inSlope: -3.954088
+      outSlope: -3.954088
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.053991497
+      inWeight: 0.10740793
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
