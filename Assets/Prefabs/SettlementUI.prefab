@@ -667,7 +667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SettlementGroup: {fileID: 2787805987701225322}
   SettlementPrefab: {fileID: 6786556791783676843, guid: fa5ee74e590bef045b5abe0f19d9cb31, type: 3}
-  FirstPlaceSprite: {fileID: 649223268058989734, guid: 11a72391886951949976f99ac4f4bfbc, type: 3}
+  FirstPlaceSprite: {fileID: 2951151890183666524, guid: a4e3db57c8c25894b800ea0c20ee8b46, type: 3}
   OtherPlaceSprite: {fileID: 649223268058989734, guid: 11a72391886951949976f99ac4f4bfbc, type: 3}
 --- !u!1 &2787805986967372581
 GameObject:

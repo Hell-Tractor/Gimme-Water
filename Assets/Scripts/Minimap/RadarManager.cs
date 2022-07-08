@@ -13,9 +13,9 @@ public class RadarManager : MonoBehaviour {
                 GameObject radarTarget = Instantiate(RadarTargetIconPrefab, this.transform);
                 target.ImageOnRadar = radarTarget.GetComponent<Image>();
 
-                target.ImageOnRadar.color = target.Color;
-                target.ImageOnRadar.sprite = target.Sprite;
             }
+            target.ImageOnRadar.color = target.Color;
+            target.ImageOnRadar.sprite = target.Sprite;
             _updatePosition(target);
         }
     }
