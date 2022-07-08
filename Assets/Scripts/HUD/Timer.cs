@@ -9,8 +9,6 @@ public class Timer : MonoBehaviour
 
     public Color EndingColor;
 
-    public float endingTime;
-
     private Text _text;
 
     // Start is called before the first frame update
@@ -23,7 +21,7 @@ public class Timer : MonoBehaviour
     void OnGUI() 
     {
         float time = GameManager.Instance?.RemainTime ?? 0.0f;
-        _text.color = time < endingTime ? EndingColor : CommonColor;
+        _text.color = GameManager.Instance.GameState == GameState.ALMOST_END ? EndingColor : CommonColor;
         
         int minutes = (int)time / 60;
         int seconds = (int)time % 60;
