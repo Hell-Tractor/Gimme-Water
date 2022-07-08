@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -2571169131784948733}
   - component: {fileID: 3745258386986872144}
   - component: {fileID: -8693068568494765615}
+  - component: {fileID: 8798383657407837173}
   m_Layer: 6
   m_Name: WaterItem
   m_TagString: Untagged
@@ -208,3 +209,25 @@ MonoBehaviour:
   syncInterval: 0.1
   clientAuthority: 0
   animator: {fileID: 3745258386986872144}
+--- !u!114 &8798383657407837173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423184274182625149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65168783f508ec3469d767f7428573ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  LocalSprite: {fileID: 21300000, guid: afb6ce909a74ec542ad4c74904bcbde8, type: 3}
+  LocalColor: {r: 0.5431267, g: 0.7631897, b: 1, a: 1}
+  MVPSprite: {fileID: 8509550459451208454, guid: 00b4d63089931f041a7a1de8ace5a07d, type: 3}
+  MVPColor: {r: 1, g: 1, b: 1, a: 0}
+  RemoteSprite: {fileID: 8509550459451208454, guid: 00b4d63089931f041a7a1de8ace5a07d, type: 3}
+  RemoteColor: {r: 1, g: 1, b: 1, a: 0}
+  IsPlayer: 0
+  ImageOnRadar: {fileID: 0}
