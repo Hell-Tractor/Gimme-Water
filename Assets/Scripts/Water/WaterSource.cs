@@ -31,7 +31,7 @@ public class WaterSource : NetworkBehaviour
         float r = Random.Range(spawnRadiusMin, spawnRadiusMax);
         float theta = Random.Range(0.0f, Mathf.Acos(-1.0f) * 2.0f);
         Vector3 pos = new Vector3(r * Mathf.Cos(theta), r * Mathf.Sin(theta));
-        pos += transform.position;
+        pos += this.transform.position;
         return pos;
     }
 
@@ -39,7 +39,7 @@ public class WaterSource : NetworkBehaviour
     {
         Vector3 pos = _getSpawnPosition();
         int i;
-        for (i = 0; Physics2D.OverlapCircle(pos, 2f) != null && i < 10; ++i) {
+        for (i = 0; Physics2D.OverlapCircle(pos, 2f) != null && i < 30; ++i) {
             pos = _getSpawnPosition();
         }
         if (i == 10) {
@@ -47,6 +47,7 @@ public class WaterSource : NetworkBehaviour
             return;
         }
         var waterItem = Instantiate(waterItemPrefab, pos, Quaternion.identity);
+        waterItem.transform.parent = this.transform;
         waterItem.GetComponent<WaterItem>().waterAmount = Random.Range(
             spawnWaterAmountMin, 
             spawnWaterAmountMax);

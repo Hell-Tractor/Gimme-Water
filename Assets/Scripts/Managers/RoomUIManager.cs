@@ -34,7 +34,7 @@ public class RoomUIManager : MonoBehaviour {
                 this.NetworkManager.StartHost();
                 return true;
             } else {
-                MessageText.text = "<color=red>玩家数量必须大于0且小于" + this.NetworkManager.maxConnections + "</color>";
+                MessageText.text = "<color=red>玩家数量必须大于0且小于" + (this.NetworkManager.maxConnections + 1) + "</color>";
                 return false;
             }
         });

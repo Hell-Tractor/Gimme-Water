@@ -104,7 +104,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   enableDecrease: 0
-  decreaseInterval: 1
+  decreaseInterval: 80
   waterAmount: 10
   CollectSound: {fileID: 8300000, guid: da8920f68dbd450418886f5108953018, type: 3}
 --- !u!114 &1417667754029854437
