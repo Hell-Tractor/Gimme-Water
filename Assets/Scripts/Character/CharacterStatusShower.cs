@@ -1,4 +1,3 @@
-using UnityEngine;
 using Mirror;
 using UnityEngine.UI;
 
@@ -12,9 +11,7 @@ public class CharacterStatusShower : NetworkBehaviour {
     }
 
     private void OnGUI() {
-        if(isLocalPlayer) {
-            NameText.text = Status.Name;
-            WaterCountText.text = Status.RemainedWater.ToString();
-        }
+        NameText.text = Status.Name;
+        WaterCountText.text = Status.RemainedWater.ToString();
     }
 }
