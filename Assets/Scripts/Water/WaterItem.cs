@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -49,7 +50,12 @@ public class WaterItem : Collectable
         if (collision.CompareTag("Player")) {
             collision.GetComponent<AI.FSM.CharacterFSM>()?.SetTrigger(AI.FSM.FSMTriggerID.ItemFound);
             collision.GetComponent<CharacterStatus>().ItemCanCollect = this;
-            GameManager.Instance.SFXSource.PlayOneShot(CollectSound);
+            this.PlayCollectSFX();
         }
+    }
+
+    [ClientRpc]
+    private void PlayCollectSFX() {
+        GameManager.Instance.SFXSource.PlayOneShot(CollectSound);
     }
 }

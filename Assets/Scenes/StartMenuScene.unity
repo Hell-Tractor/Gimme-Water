@@ -377,7 +377,7 @@ MonoBehaviour:
   GameState: 0
   GameDuration: 30
   EndingTime: 25
-  NeedPlayerCount: 1
+  NeedPlayerCount: 2
   PlayersWithMaxRemainedWater: []
 --- !u!82 &1073042948
 AudioSource:
