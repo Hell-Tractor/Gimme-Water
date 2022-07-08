@@ -6,11 +6,11 @@ public class CharacterStatus : NetworkBehaviour {
     public float DizzyTime = 3;
     public float DizzyTimeReduceAmount = 0.2f;
     public int InitWater;
-    [SyncVar]
     public string Name;
     public AudioClip OnHitSound;
+    public AudioClip FireSound;
 
-    [HideInInspector, SyncVar]
+    [HideInInspector]
     public int RemainedWater = 0;
 
     [HideInInspector]
@@ -34,9 +34,14 @@ public class CharacterStatus : NetworkBehaviour {
             return;
         Direction.x = x * Mathf.Sqrt(1.0f - (y * y) * 0.5f);
         Direction.y = y * Mathf.Sqrt(1.0f - (x * x) * 0.5f);
-        Animator animator = this.GetComponent<Animator>();
-        animator.SetFloat("DirectionX", Direction.x);
-        animator.SetFloat("DirectionY", Direction.y);
+        
+        var shooter = this.GetComponent<Shooter>();
+        if(!shooter.shooting)
+        {
+            Animator animator = this.GetComponent<Animator>();
+            animator.SetFloat("DirectionX", Direction.x);
+            animator.SetFloat("DirectionY", Direction.y);
+        }
     }
 
     [Command]
@@ -59,7 +64,16 @@ public class CharacterStatus : NetworkBehaviour {
             if(Input.GetButtonUp("Fire"))
                 CmdSetIsShooting(false);
 
+            
             CmdMove(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        }
+
+        var shooter = this.GetComponent<Shooter>();
+        if(shooter.shooting)
+        {
+            Animator animator = this.GetComponent<Animator>();
+            animator.SetFloat("DirectionX", Mathf.Cos(shooter.GetShootAngle() * Mathf.Deg2Rad));
+            animator.SetFloat("DirectionY", Mathf.Sin(shooter.GetShootAngle() * Mathf.Deg2Rad));
         }
     }
 
