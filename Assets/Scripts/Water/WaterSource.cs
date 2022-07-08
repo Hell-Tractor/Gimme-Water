@@ -47,7 +47,7 @@ public class WaterSource : NetworkBehaviour
             return;
         }
         var waterItem = Instantiate(waterItemPrefab, pos, Quaternion.identity);
-        waterItem.transform.parent = this.transform;
+        // waterItem.transform.parent = this.transform;
         waterItem.GetComponent<WaterItem>().waterAmount = Random.Range(
             spawnWaterAmountMin, 
             spawnWaterAmountMax);
