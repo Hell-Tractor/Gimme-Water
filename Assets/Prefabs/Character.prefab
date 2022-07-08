@@ -164,7 +164,7 @@ MonoBehaviour:
   syncInterval: 0.1
   defaultStateID: 1
   currentStateID: 
-  animator: {fileID: 0}
+  animator: {fileID: -691590844366812867}
 --- !u!114 &7982284703267290868
 MonoBehaviour:
   m_ObjectHideFlags: 0
