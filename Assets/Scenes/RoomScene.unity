@@ -449,7 +449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &546176915
 RectTransform:
   m_ObjectHideFlags: 0
@@ -461,10 +461,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1941618551}
-  - {fileID: 847002100}
   - {fileID: 693821517}
+  - {fileID: 1941618551}
   - {fileID: 1206158027}
+  - {fileID: 847002100}
   - {fileID: 1759156219}
   - {fileID: 1416699754}
   m_Father: {fileID: 737187162}
@@ -604,12 +604,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 546176915}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -104, y: 122}
-  m_SizeDelta: {x: 320, y: 50}
+  m_AnchoredPosition: {x: -167.5, y: 122}
+  m_SizeDelta: {x: 193, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &693821518
 MonoBehaviour:
@@ -883,7 +883,7 @@ RectTransform:
   - {fileID: 1477998288}
   - {fileID: 2091959901}
   m_Father: {fileID: 546176915}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1102,12 +1102,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 546176915}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -105, y: 21}
-  m_SizeDelta: {x: 320, y: 50}
+  m_AnchoredPosition: {x: -168, y: 21}
+  m_SizeDelta: {x: 194, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1206158028
 MonoBehaviour:
@@ -1659,7 +1659,7 @@ MonoBehaviour:
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 1643007168851583110, guid: 9d6b145b8c08c4848963508f5cefc20a, type: 3}
   autoCreatePlayer: 1
-  playerSpawnMethod: 1
+  playerSpawnMethod: 0
   spawnPrefabs:
   - {fileID: 1423184274182625149, guid: e4cc92db3af2c3b48b00b0e0f5a4044d, type: 3}
   - {fileID: 6528321212428213666, guid: d821a8d07582e9c45a5ada4f5a3a329e, type: 3}
@@ -1976,7 +1976,7 @@ RectTransform:
   - {fileID: 1163821574}
   - {fileID: 2054349212}
   m_Father: {fileID: 546176915}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2223,7 +2223,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 4919733d095c955499ce4ae7f82c75f6, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
