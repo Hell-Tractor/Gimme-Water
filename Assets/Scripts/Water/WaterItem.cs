@@ -14,11 +14,14 @@ public class WaterItem : Collectable
     public int waterAmount = 10;
     public AudioClip CollectSound;
 
-
     override public void collectByCharacter(CharacterStatus status) 
     {
         status.RemainedWater += waterAmount;
-        Destroy(this.gameObject);
+
+        this.GetComponent<Animator>().SetTrigger("CollectTrigger");
+
+        Destroy(this.GetComponent<Collider2D>());
+        Destroy(this.gameObject, 0.75f);
     }
 
     void Update()

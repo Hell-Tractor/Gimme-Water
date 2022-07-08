@@ -8,7 +8,6 @@ public class CharacterStatus : NetworkBehaviour {
     public int InitWater;
     public string Name;
     public AudioClip OnHitSound;
-    public AudioClip FireSound;
 
     [HideInInspector]
     public int RemainedWater = 0;

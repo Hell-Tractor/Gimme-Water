@@ -10,6 +10,7 @@ public class Bullet : NetworkBehaviour
     public float initialSpeed = 1.0f;
 
     public AnimationCurve speedCurve;
+    public AudioClip OnFireSound;
 
     float _remainTime = 0.0f;
 
@@ -20,6 +21,9 @@ public class Bullet : NetworkBehaviour
 
     public void Launch(Shooter shooter)
     {
+        if (GameManager.Instance.SFXSource.isPlaying)
+            GameManager.Instance.SFXSource.Stop();
+        GameManager.Instance.SFXSource.PlayOneShot(OnFireSound);
         _shooter = shooter;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _rigidbody2D.velocity = Vector2.right;
