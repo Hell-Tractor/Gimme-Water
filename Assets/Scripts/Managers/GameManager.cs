@@ -25,7 +25,10 @@ public class GameManager : MonoBehaviour {
     }
     private float _remainTime;
     public float RemainTime { get { return _remainTime; }}
+    [HideInInspector]
     public GameObject[] PlayersWithMaxRemainedWater;
+    [HideInInspector]
+    public string currentPlayerName;
 
     public void StartGame() {
         _remainTime = GameDuration;

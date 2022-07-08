@@ -15,6 +15,8 @@ public class CharacterStatus : NetworkBehaviour {
 
     [HideInInspector]
     public Vector2 Direction;
+    [HideInInspector]
+    public Vector2 SpeedDirection;
 
     [HideInInspector]
     public Collectable ItemCanCollect = null;
@@ -25,15 +27,17 @@ public class CharacterStatus : NetworkBehaviour {
         if(isLocalPlayer) {
             foreach (var camera in Camera.allCameras)
                 camera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = this.transform;
+            this.Name = GameManager.Instance.currentPlayerName;
         }
     }
 
     [Command]
     private void CmdMove(float x, float y) {
+        SpeedDirection.x = x * Mathf.Sqrt(1.0f - (y * y) * 0.5f);
+        SpeedDirection.y = y * Mathf.Sqrt(1.0f - (x * x) * 0.5f);
         if (Mathf.Approximately(x, 0) && Mathf.Approximately(y, 0))
             return;
-        Direction.x = x * Mathf.Sqrt(1.0f - (y * y) * 0.5f);
-        Direction.y = y * Mathf.Sqrt(1.0f - (x * x) * 0.5f);
+        Direction = SpeedDirection;
         
         var shooter = this.GetComponent<Shooter>();
         if(!shooter.shooting)
