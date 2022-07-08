@@ -33,6 +33,11 @@ public class RadarTarget : NetworkBehaviour {
         }
     }
 
+    private void OnDestroy() {
+        if (ImageOnRadar != null)
+            Destroy(ImageOnRadar.gameObject);
+    }
+
     [HideInInspector]
     public Image ImageOnRadar = null;
 }
