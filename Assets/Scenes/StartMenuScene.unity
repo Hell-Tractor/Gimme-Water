@@ -471,10 +471,12 @@ MonoBehaviour:
   BGMSource: {fileID: 1073042949}
   SFXSource: {fileID: 1073042948}
   GameState: 0
-  GameDuration: 30
-  EndingTime: 25
+  GameDuration: 180
+  EndingTime: 30
+  SettlementUIPrefab: {fileID: 2787805986879946629, guid: 99f35343ee0611e4f813c4d18bd886e7, type: 3}
   NeedPlayerCount: 2
   PlayersWithMaxRemainedWater: []
+  currentPlayerName: 
 --- !u!82 &1073042948
 AudioSource:
   m_ObjectHideFlags: 0

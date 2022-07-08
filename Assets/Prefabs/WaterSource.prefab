@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  spawnEnabled: 1
+  spawnEnabled: 0
   spawnIntervalMin: 60
   spawnIntervalMax: 60
   spawnRadiusMin: 0

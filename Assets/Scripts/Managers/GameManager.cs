@@ -11,12 +11,12 @@ public enum GameState {
 public class GameManager : MonoBehaviour {
     private static GameManager _instance;
     public static GameManager Instance { get { return _instance; } }
-
     public AudioSource BGMSource;
     public AudioSource SFXSource;
     public GameState GameState = GameState.UNSTARTED;
     public float GameDuration;
     public float EndingTime;
+    public GameObject SettlementUIPrefab;
     public int NeedPlayerCount = 1;
     public int CurrentPlayerCount {
         get {
@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour {
         foreach (WaterSource waterSource in waterSources) {
             waterSource.spawnEnabled = false;
         }
+
+        GameObject settlementUI = Instantiate(SettlementUIPrefab);
+        settlementUI.GetComponent<SettlementManager>().Show();
+        Time.timeScale = 0;
     }
     private void _getMVPPlayers() {
         GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
