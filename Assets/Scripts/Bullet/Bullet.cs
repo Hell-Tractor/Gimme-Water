@@ -32,7 +32,6 @@ public class Bullet : NetworkBehaviour
     void Start()
     {   
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        this.PlayFireSFX();
     }
 
     void FixedUpdate()

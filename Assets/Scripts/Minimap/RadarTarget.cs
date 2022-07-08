@@ -18,7 +18,7 @@ public class RadarTarget : NetworkBehaviour {
                 return LocalColor;
             if (isLocalPlayer)
                 return LocalColor;
-            else if (GameManager.Instance.PlayersWithMaxRemainedWater.Contains(this.gameObject))
+            else if (GameManager.Instance.PlayersWithMaxRemainedWater?.Contains(this.gameObject) == true)
                 return MVPColor;
             else
                 return RemoteColor;
@@ -31,11 +31,16 @@ public class RadarTarget : NetworkBehaviour {
                 return LocalSprite;
             if (isLocalPlayer)
                 return LocalSprite;
-            else if (GameManager.Instance.PlayersWithMaxRemainedWater.Contains(this.gameObject))
+            else if (GameManager.Instance.PlayersWithMaxRemainedWater?.Contains(this.gameObject) == true)
                 return MVPSprite;
             else
                 return RemoteSprite;
         }
+    }
+
+    private void OnDestroy() {
+        if (ImageOnRadar != null)
+            Destroy(ImageOnRadar.gameObject);
     }
 
     [HideInInspector]
