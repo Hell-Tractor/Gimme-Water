@@ -40,7 +40,7 @@ public class Shooter : NetworkBehaviour
     {
         if(_status != null)
         {
-            if(_status.RemainedWater <= waterCost)
+            if(_status.RemainedWater < waterCost)
                 return;
             _status.RemainedWater -= waterCost;
         }

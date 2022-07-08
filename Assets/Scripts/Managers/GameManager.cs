@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public enum GameState {
     UNSTARTED,
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour {
     public GameObject[] PlayersWithMaxRemainedWater;
     [HideInInspector]
     public string currentPlayerName;
+    public AudioClip GameBgm;
 
     public void StartGame() {
         _remainTime = GameDuration;
@@ -62,6 +64,15 @@ public class GameManager : MonoBehaviour {
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+    }
+    private void Start() {
+        SceneManager.sceneLoaded += (Scene scene, LoadSceneMode mode) => {
+            if (scene.name == "GameScene") {
+                BGMSource.Stop();
+                BGMSource.clip = GameBgm;
+                BGMSource.Play();
+            }
+        };
     }
     private void Update() {
         if (GameState == GameState.UNSTARTED && NeedPlayerCount == CurrentPlayerCount)
