@@ -6,11 +6,14 @@ public class CharacterStatus : NetworkBehaviour {
     public float DizzyTime = 3;
     public float DizzyTimeReduceAmount = 0.2f;
     public int InitWater;
+    
+    [SyncVar]
     public string Name;
+
     public AudioClip OnHitSound;
     public AudioClip FireSound;
 
-    [HideInInspector]
+    [HideInInspector, SyncVar]
     public int RemainedWater = 0;
 
     [HideInInspector]
@@ -27,7 +30,7 @@ public class CharacterStatus : NetworkBehaviour {
         if(isLocalPlayer) {
             foreach (var camera in Camera.allCameras)
                 camera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = this.transform;
-            this.Name = GameManager.Instance.currentPlayerName;
+            this.SetName(GameManager.Instance.currentPlayerName);
         }
     }
 
@@ -83,5 +86,9 @@ public class CharacterStatus : NetworkBehaviour {
     [ClientRpc]
     public void PlayOnHitSFX() {
         GameManager.Instance.SFXSource.PlayOneShot(OnHitSound);
+    }
+    [Command]
+    public void SetName(string name) {
+        this.Name = name;
     }
 }

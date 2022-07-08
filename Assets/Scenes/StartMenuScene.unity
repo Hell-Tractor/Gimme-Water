@@ -471,10 +471,13 @@ MonoBehaviour:
   BGMSource: {fileID: 1073042949}
   SFXSource: {fileID: 1073042948}
   GameState: 0
-  GameDuration: 30
-  EndingTime: 25
+  GameDuration: 180
+  EndingTime: 30
+  SettlementUIPrefab: {fileID: 2787805986879946629, guid: 99f35343ee0611e4f813c4d18bd886e7, type: 3}
   NeedPlayerCount: 2
   PlayersWithMaxRemainedWater: []
+  currentPlayerName: 
+  GameBgm: {fileID: 8300000, guid: 34aef0efdba7aab4e9f1ca36b08d2547, type: 3}
 --- !u!82 &1073042948
 AudioSource:
   m_ObjectHideFlags: 0
@@ -581,11 +584,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6a533af6599e0bb4bbf2935430d38941, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

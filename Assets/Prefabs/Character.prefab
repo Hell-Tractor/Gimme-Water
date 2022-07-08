@@ -182,7 +182,7 @@ MonoBehaviour:
   Speed: 10
   DizzyTime: 3
   DizzyTimeReduceAmount: 0.2
-  InitWater: 10000
+  InitWater: 0
   Name: cheiming
   OnHitSound: {fileID: 8300000, guid: 546489aee6a1a324597c85076a7d7fa2, type: 3}
   FireSound: {fileID: 0}

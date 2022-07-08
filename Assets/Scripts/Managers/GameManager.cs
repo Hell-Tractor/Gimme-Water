@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public enum GameState {
     UNSTARTED,
@@ -11,12 +12,12 @@ public enum GameState {
 public class GameManager : MonoBehaviour {
     private static GameManager _instance;
     public static GameManager Instance { get { return _instance; } }
-
     public AudioSource BGMSource;
     public AudioSource SFXSource;
     public GameState GameState = GameState.UNSTARTED;
     public float GameDuration;
     public float EndingTime;
+    public GameObject SettlementUIPrefab;
     public int NeedPlayerCount = 1;
     public int CurrentPlayerCount {
         get {
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour {
     public GameObject[] PlayersWithMaxRemainedWater;
     [HideInInspector]
     public string currentPlayerName;
+    public AudioClip GameBgm;
 
     public void StartGame() {
         _remainTime = GameDuration;
@@ -44,6 +46,10 @@ public class GameManager : MonoBehaviour {
         foreach (WaterSource waterSource in waterSources) {
             waterSource.spawnEnabled = false;
         }
+
+        GameObject settlementUI = Instantiate(SettlementUIPrefab);
+        settlementUI.GetComponent<SettlementManager>().Show();
+        Time.timeScale = 0;
     }
     private void _getMVPPlayers() {
         GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
@@ -58,6 +64,15 @@ public class GameManager : MonoBehaviour {
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+    }
+    private void Start() {
+        SceneManager.sceneLoaded += (Scene scene, LoadSceneMode mode) => {
+            if (scene.name == "GameScene") {
+                BGMSource.Stop();
+                BGMSource.clip = GameBgm;
+                BGMSource.Play();
+            }
+        };
     }
     private void Update() {
         if (GameState == GameState.UNSTARTED && NeedPlayerCount == CurrentPlayerCount)
