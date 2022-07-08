@@ -6,9 +6,11 @@ public class CharacterStatus : NetworkBehaviour {
     public float DizzyTime = 3;
     public float DizzyTimeReduceAmount = 0.2f;
     public int InitWater;
+    [SyncVar]
     public string Name;
+    public AudioClip OnHitSound;
 
-    [HideInInspector]
+    [HideInInspector, SyncVar]
     public int RemainedWater = 0;
 
     [HideInInspector]

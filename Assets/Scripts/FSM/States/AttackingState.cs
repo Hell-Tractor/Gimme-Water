@@ -13,7 +13,6 @@ namespace AI.FSM {
         public override void OnStateEnter(FSMBase fsm) {
             base.OnStateEnter(fsm);
             _movingState.OnStateEnter(fsm);
-
         }
 
         public override void OnStateStay(FSMBase fsm) {

@@ -12,12 +12,16 @@ public class WaterItem : Collectable
     public float decreaseInterval = 1.0f;
 
     public int waterAmount = 10;
-
+    public AudioClip CollectSound;
 
     override public void collectByCharacter(CharacterStatus status) 
     {
         status.RemainedWater += waterAmount;
-        Destroy(this.gameObject);
+
+        this.GetComponent<Animator>().SetTrigger("CollectTrigger");
+
+        Destroy(this.GetComponent<Collider2D>());
+        Destroy(this.gameObject, 0.75f);
     }
 
     void Update()
@@ -45,6 +49,7 @@ public class WaterItem : Collectable
         if (collision.CompareTag("Player")) {
             collision.GetComponent<AI.FSM.CharacterFSM>()?.SetTrigger(AI.FSM.FSMTriggerID.ItemFound);
             collision.GetComponent<CharacterStatus>().ItemCanCollect = this;
+            GameManager.Instance.SFXSource.PlayOneShot(CollectSound);
         }
     }
 }

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146162954678048013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.84, z: 0}
+  m_LocalPosition: {x: 0, y: 0.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1643007168851583108}
@@ -183,6 +183,7 @@ MonoBehaviour:
   DizzyTimeReduceAmount: 0.2
   InitWater: 10000
   Name: cheiming
+  OnHitSound: {fileID: 8300000, guid: 546489aee6a1a324597c85076a7d7fa2, type: 3}
   RemainedWater: 0
   Direction: {x: 0, y: 0}
   ItemCanCollect: {fileID: 0}
@@ -218,7 +219,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   waterCost: 1
-  shootInterval: 0.1
+  shootInterval: 0.2
   shootSpreadAngle: 10
   initialDistance: 0.5
   bulletPrefab: {fileID: 7006199223666882808, guid: c9640b13627a27d459a7a586a19622cf, type: 3}
@@ -258,10 +259,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.038677454, y: 1.414929}
+  m_Offset: {x: -0.038677454, y: 1.0113463}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.55}
     oldSize: {x: 3.21, y: 6.615}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -269,7 +270,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.3590932, y: 2.2236435}
+  m_Size: {x: 2.3590932, y: 2.292829}
   m_EdgeRadius: 0
 --- !u!114 &7909895395569869064
 MonoBehaviour:
@@ -377,7 +378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 1
+  clientAuthority: 0
   animator: {fileID: -691590844366812867}
 --- !u!1 &4312196523948947183
 GameObject:
@@ -650,7 +651,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.53}
+  m_AnchoredPosition: {x: 0, y: 2.23}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3085070900605384175

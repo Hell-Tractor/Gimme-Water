@@ -128,6 +128,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  OnFireSound: {fileID: 8300000, guid: 9516de84f01b7834e8a578d57d21731b, type: 3}
 --- !u!50 &766075137615423862
 Rigidbody2D:
   serializedVersion: 4

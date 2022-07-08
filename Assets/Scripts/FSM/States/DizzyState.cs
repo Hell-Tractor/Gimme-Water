@@ -14,6 +14,12 @@ namespace AI.FSM {
         public override void OnStateEnter(FSMBase fsm) {
             base.OnStateEnter(fsm);
 
+            GameManager.Instance.SFXSource.PlayOneShot(
+                fsm.GetComponent<CharacterStatus>().OnHitSound
+            );
+
+            fsm.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
             _characterStatus = fsm.GetComponent<CharacterStatus>();
             _timer = _characterStatus?.DizzyTime ?? 3;
             _lastPressedButton = 1;

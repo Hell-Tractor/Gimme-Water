@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1417667754029854437}
   - component: {fileID: -6782506979005209821}
   - component: {fileID: -2571169131784948733}
+  - component: {fileID: 3745258386986872144}
+  - component: {fileID: -8693068568494765615}
   m_Layer: 6
   m_Name: WaterItem
   m_TagString: Untagged
@@ -103,6 +105,7 @@ MonoBehaviour:
   enableDecrease: 0
   decreaseInterval: 1
   waterAmount: 10
+  CollectSound: {fileID: 8300000, guid: da8920f68dbd450418886f5108953018, type: 3}
 --- !u!114 &1417667754029854437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,3 +173,38 @@ CircleCollider2D:
   m_Offset: {x: -0.00000011920929, y: -0.4686464}
   serializedVersion: 2
   m_Radius: 0.67979443
+--- !u!95 &3745258386986872144
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423184274182625149}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 380c837cb02af174390a9b8d20defcfc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-8693068568494765615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423184274182625149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 0
+  animator: {fileID: 3745258386986872144}
