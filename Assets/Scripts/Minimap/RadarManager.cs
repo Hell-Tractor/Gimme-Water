@@ -9,6 +9,7 @@ public class RadarManager : MonoBehaviour {
         RadarTarget[] targets = GameObject.FindObjectsOfType<RadarTarget>();
         foreach (RadarTarget target in targets) {
             if (target.ImageOnRadar == null) {
+                Debug.Log(target.gameObject.name);
                 GameObject radarTarget = Instantiate(RadarTargetIconPrefab, this.transform);
                 target.ImageOnRadar = radarTarget.GetComponent<Image>();
 
