@@ -33,6 +33,9 @@ namespace AI.FSM {
                 DizzyState dizzyState = new DizzyState();
                 dizzyState.AddMap(FSMTriggerID.DizzyEnd, FSMStateID.Idle);
                 _states.Add(dizzyState);
+            } else {
+                IdleState idleState = new IdleState();
+                _states.Add(idleState);
             }
         }
     }

@@ -54,7 +54,6 @@ public class CharacterStatus : NetworkBehaviour {
             this.GetComponent<AI.FSM.CharacterFSM>().SetTrigger(AI.FSM.FSMTriggerID.AttackEnd);
             _isCurrentShooting = false;
         }
-        GetComponent<Shooter>().shooting = isShooting;
     }
 
     private void Update() {
