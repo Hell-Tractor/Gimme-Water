@@ -27,6 +27,7 @@ public class CharacterStatus : NetworkBehaviour {
         if(isLocalPlayer) {
             foreach (var camera in Camera.allCameras)
                 camera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = this.transform;
+            this.Name = GameManager.Instance.currentPlayerName;
         }
     }
 
