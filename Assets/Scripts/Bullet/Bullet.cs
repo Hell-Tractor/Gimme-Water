@@ -21,9 +21,6 @@ public class Bullet : NetworkBehaviour
 
     public void Launch(Shooter shooter)
     {
-        if (GameManager.Instance.SFXSource.isPlaying)
-            GameManager.Instance.SFXSource.Stop();
-        GameManager.Instance.SFXSource.PlayOneShot(OnFireSound);
         _shooter = shooter;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _rigidbody2D.velocity = Vector2.right;
@@ -35,6 +32,7 @@ public class Bullet : NetworkBehaviour
     void Start()
     {   
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        this.PlayFireSFX();
     }
 
     void FixedUpdate()
@@ -68,5 +66,12 @@ public class Bullet : NetworkBehaviour
                 collision.GetComponent<AI.FSM.CharacterFSM>()?.SetTrigger(AI.FSM.FSMTriggerID.UnderAttack);
             Destroy(gameObject);
         }
+    }
+
+    [ClientRpc]
+    public void PlayFireSFX() {
+        if (GameManager.Instance.SFXSource.isPlaying)
+            GameManager.Instance.SFXSource.Stop();
+        GameManager.Instance.SFXSource.PlayOneShot(OnFireSound);
     }
 }

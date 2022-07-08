@@ -18,6 +18,7 @@ public class CharacterStatus : NetworkBehaviour {
 
     [HideInInspector]
     public Collectable ItemCanCollect = null;
+    private bool _isCurrentShooting = false;
 
     private void Start() {
         RemainedWater = InitWater;
@@ -39,8 +40,15 @@ public class CharacterStatus : NetworkBehaviour {
     }
 
     [Command]
-    private void CmdSetIsShooting(bool isShooting)
+    public void CmdSetIsShooting(bool isShooting)
     {
+        if (isShooting && !_isCurrentShooting) {
+            this.GetComponent<AI.FSM.CharacterFSM>().SetTrigger(AI.FSM.FSMTriggerID.AttackStart);
+            _isCurrentShooting = true;
+        } else if (!isShooting && _isCurrentShooting) {
+            this.GetComponent<AI.FSM.CharacterFSM>().SetTrigger(AI.FSM.FSMTriggerID.AttackEnd);
+            _isCurrentShooting = false;
+        }
         GetComponent<Shooter>().shooting = isShooting;
     }
 
@@ -53,5 +61,10 @@ public class CharacterStatus : NetworkBehaviour {
 
             CmdMove(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         }
-    } 
+    }
+
+    [ClientRpc]
+    public void PlayOnHitSFX() {
+        GameManager.Instance.SFXSource.PlayOneShot(OnHitSound);
+    }
 }

@@ -53,6 +53,7 @@ public class Shooter : NetworkBehaviour
         bullet.GetComponent<Bullet>().Launch(this);
 
         NetworkServer.Spawn(bullet);
+        bullet.GetComponent<Bullet>().PlayFireSFX();
     }
 
     // Start is called before the first frame update

@@ -4,7 +4,6 @@ namespace AI.FSM {
 
     public class AttackingState : FSMState {
         private MovingState _movingState;
-        private Shooter _shooter;
         protected override void init() {
             this.StateID = FSMStateID.Attacking;
             _movingState = new MovingState();
@@ -28,7 +27,6 @@ namespace AI.FSM {
         public override void OnStateExit(FSMBase fsm) {
             base.OnStateExit(fsm);
             _movingState.OnStateExit(fsm);
-
         }
     }
 
