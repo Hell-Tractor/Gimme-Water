@@ -42,10 +42,13 @@ public class CharacterStatus : NetworkBehaviour {
             return;
         Direction = SpeedDirection;
         
+        Animator animator = this.GetComponent<Animator>();
+        animator.SetFloat("DizzyDirectionX", Direction.x);
+        animator.SetFloat("DizzyDirectionY", Direction.y);
+
         var shooter = this.GetComponent<Shooter>();
         if(!shooter.shooting)
         {
-            Animator animator = this.GetComponent<Animator>();
             animator.SetFloat("DirectionX", Direction.x);
             animator.SetFloat("DirectionY", Direction.y);
         }
