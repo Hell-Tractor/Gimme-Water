@@ -63,6 +63,15 @@ public class FSMBase : NetworkBehaviour {
         return false;
     }
 
+    [Command]
+    public void SetAnimatorTrigger(string trigger) {
+        this.animator?.SetTrigger(trigger);
+    }
+    [Command]
+    public void ResetAnimatorTrigger(string trigger) {
+        this.animator?.ResetTrigger(trigger);
+    }
+
     [Tooltip("默认状态"), Header("状态设置")]
     public FSMStateID defaultStateID;
     protected FSMState _defaultState;

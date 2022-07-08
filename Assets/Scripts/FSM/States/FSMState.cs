@@ -44,16 +44,18 @@ public abstract class FSMState {
     }
     
     public virtual void OnStateEnter(FSMBase fsm) {
-        if (fsm.animator != null) {
-            fsm.animator.SetTrigger(StateID.ToString() + "Trigger");
-        }
+        fsm.SetAnimatorTrigger(StateID.ToString() + "Trigger");
+        // if (fsm.animator != null) {
+            // fsm.animator.SetTrigger(StateID.ToString() + "Trigger");
+        // }
     }
     public virtual void OnStateStay(FSMBase fsm) {}
     public virtual void OnStateFixedStay(FSMBase fsm) {}
     public virtual void OnStateExit(FSMBase fsm) {
-        if (fsm.animator != null) {
-            fsm.animator.ResetTrigger(StateID.ToString() + "Trigger");
-        }
+        fsm.ResetAnimatorTrigger(StateID.ToString() + "Trigger");
+        // if (fsm.animator != null) {
+        //     fsm.animator.ResetTrigger(StateID.ToString() + "Trigger");
+        // }
     }
     
     public FSMStateID StateID { get; set; }

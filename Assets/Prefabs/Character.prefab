@@ -381,7 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 0
+  clientAuthority: 1
   animator: {fileID: -691590844366812867}
 --- !u!1 &4312196523948947183
 GameObject:
