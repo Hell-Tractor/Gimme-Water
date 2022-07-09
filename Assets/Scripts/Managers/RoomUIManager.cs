@@ -24,8 +24,8 @@ public class RoomUIManager : MonoBehaviour {
     public void CreateHost() {
         Dialog.gameObject.SetActive(true);
         Dialog.Show("玩家姓名：", "玩家数量：", (name, count) => {
-            if (name.Length < 0) {
-                MessageText.text = "玩家姓名不能为空";
+            if (name.Length <= 0) {
+                MessageText.text = "<color=red>玩家姓名不能为空</color>";
                 return false;
             }
             if (int.TryParse(count, out int c) && c > 0 && c < this.NetworkManager.maxConnections) {
@@ -42,8 +42,8 @@ public class RoomUIManager : MonoBehaviour {
     public void CreateClient() {
         Dialog.gameObject.SetActive(true);
         Dialog.Show("玩家姓名：", "IP地址：", (name, ip) => {
-            if (name.Length < 0) {
-                MessageText.text = "玩家姓名不能为空";
+            if (name.Length <= 0) {
+                MessageText.text = "<color=red>玩家姓名不能为空</color>";
                 return false;
             }
             if (ip.Length > 0) {

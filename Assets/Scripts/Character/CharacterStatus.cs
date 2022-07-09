@@ -84,7 +84,7 @@ public class CharacterStatus : NetworkBehaviour {
         if(isLocalPlayer) {
             if(Input.GetButtonDown("Fire"))
                 CmdSetIsShooting(true);
-            if(Input.GetButtonUp("Fire"))
+            else if(Input.GetButtonUp("Fire"))
                 CmdSetIsShooting(false);
 
             

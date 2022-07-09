@@ -75,7 +75,7 @@ public class Shooter : NetworkBehaviour
         {
             if(shooting)
             {
-                if(_remainShootTime < 0.0f)
+                if(_remainShootTime <= 0.0f)
                 {
                     shoot();
                     _remainShootTime = shootInterval;

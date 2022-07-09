@@ -25,6 +25,8 @@ public class WaterSource : NetworkBehaviour
 
     public int spawnWaterAmountMax = 10;
 
+    public float firstCD = 5.0f;
+
     public GameObject waterItemPrefab;
 
     private Vector3 _getSpawnPosition() {
@@ -57,7 +59,7 @@ public class WaterSource : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _remainSpawnWaterTime = firstCD;
     }
 
     // Update is called once per frame

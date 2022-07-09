@@ -184,6 +184,7 @@ MonoBehaviour:
   DizzyTimeReduceAmount: 0.2
   InitWater: 0
   Name: cheiming
+  startFlag: 0
   OnHitSound: {fileID: 8300000, guid: 546489aee6a1a324597c85076a7d7fa2, type: 3}
   FireSound: {fileID: 0}
   RemainedWater: 0
@@ -223,7 +224,7 @@ MonoBehaviour:
   syncInterval: 0.1
   waterCost: 1
   shootInterval: 0.2
-  shootSpreadAngle: 10
+  shootSpreadAngle: 2
   initialDistance: 0.5
   bulletPrefab: {fileID: 7006199223666882808, guid: c9640b13627a27d459a7a586a19622cf, type: 3}
   shooting: 0
@@ -676,7 +677,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: -1026474327
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &242281816699788446
 MonoBehaviour:

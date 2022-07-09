@@ -98,10 +98,11 @@ public class GameManager : MonoBehaviour {
                 GameState = GameState.ALMOST_END;
             } else if (GameState == GameState.ALMOST_END && _remainTime <= 0) {
                 GameState = GameState.ENDED;
-                GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
-                foreach(var p in objects)
-                    p.GetComponent<CharacterStatus>().RpcEndGame();
-
+                if (this.NeedPlayerCount <= NetworkManager.singleton.maxConnections) {
+                    GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
+                    foreach(var p in objects)
+                        p.GetComponent<CharacterStatus>().RpcEndGame();
+                }
                 this.OnGameEnd();
             }
         }
