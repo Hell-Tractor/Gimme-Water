@@ -10,6 +10,8 @@ public class CharacterStatus : NetworkBehaviour {
     [SyncVar]
     public string Name;
 
+    public bool startFlag;
+
     public AudioClip OnHitSound;
     public AudioClip FireSound;
 
@@ -32,6 +34,18 @@ public class CharacterStatus : NetworkBehaviour {
                 camera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = this.transform;
             this.SetName(GameManager.Instance.currentPlayerName);
         }
+    }
+
+    [ClientRpc]
+    public void RpcStartGame()
+    {
+        startFlag = true;
+    }
+
+    [ClientRpc]
+    public void RpcEndGame()
+    {
+        startFlag = false;
     }
 
     [Command]

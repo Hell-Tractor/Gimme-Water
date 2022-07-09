@@ -474,7 +474,7 @@ MonoBehaviour:
   GameDuration: 180
   EndingTime: 30
   SettlementUIPrefab: {fileID: 2787805986879946629, guid: 99f35343ee0611e4f813c4d18bd886e7, type: 3}
-  NeedPlayerCount: 2
+  NeedPlayerCount: 100000
   PlayersWithMaxRemainedWater: []
   currentPlayerName: 
   GameBgm: {fileID: 8300000, guid: 34aef0efdba7aab4e9f1ca36b08d2547, type: 3}

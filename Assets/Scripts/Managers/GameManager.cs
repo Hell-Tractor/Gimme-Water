@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using Mirror;
 
 public enum GameState {
     UNSTARTED,
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour {
     public float GameDuration;
     public float EndingTime;
     public GameObject SettlementUIPrefab;
-    public int NeedPlayerCount = 1;
+    public int NeedPlayerCount = 1000000;
     public int CurrentPlayerCount {
         get {
             return GameObject.FindGameObjectsWithTag("Player").Length;
@@ -75,8 +76,21 @@ public class GameManager : MonoBehaviour {
         };
     }
     private void Update() {
-        if (GameState == GameState.UNSTARTED && NeedPlayerCount == CurrentPlayerCount)
-            this.StartGame();
+        if (GameState == GameState.UNSTARTED) {
+            if(NeedPlayerCount == CurrentPlayerCount) {
+    
+                GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
+                foreach(var p in objects)
+                    p.GetComponent<CharacterStatus>().RpcStartGame();
+                        
+            }
+            {
+            GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
+            foreach(var p in objects)
+                if(p.GetComponent<NetworkIdentity>().isLocalPlayer && p.GetComponent<CharacterStatus>().startFlag)
+                    this.StartGame();
+            }
+        }
         if (GameState == GameState.RUNNING || GameState == GameState.ALMOST_END) {
             _remainTime -= Time.deltaTime;
             _getMVPPlayers();
@@ -84,6 +98,10 @@ public class GameManager : MonoBehaviour {
                 GameState = GameState.ALMOST_END;
             } else if (GameState == GameState.ALMOST_END && _remainTime <= 0) {
                 GameState = GameState.ENDED;
+                GameObject[] objects = GameObject.FindGameObjectsWithTag("Player");
+                foreach(var p in objects)
+                    p.GetComponent<CharacterStatus>().RpcEndGame();
+
                 this.OnGameEnd();
             }
         }
