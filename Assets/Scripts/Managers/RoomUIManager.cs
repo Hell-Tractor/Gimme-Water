@@ -13,6 +13,7 @@ public class RoomUIManager : MonoBehaviour {
     private void Start() {
         IPText.text = "IP Address: " + GetLocalIP();
         Dialog.gameObject.SetActive(false);
+        GameManager.Instance.GameState = GameState.UNSTARTED;
     }
     public static string GetLocalIP() {
         string strHostName = Dns.GetHostName();

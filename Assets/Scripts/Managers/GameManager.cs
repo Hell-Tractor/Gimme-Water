@@ -107,4 +107,7 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
+    public void ResetGameTime() {
+        this._remainTime = this.GameDuration;
+    }
 }

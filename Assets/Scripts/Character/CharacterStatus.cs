@@ -40,6 +40,7 @@ public class CharacterStatus : NetworkBehaviour {
     public void RpcStartGame()
     {
         startFlag = true;
+        GameManager.Instance.ResetGameTime();
     }
 
     [ClientRpc]
